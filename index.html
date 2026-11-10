@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Telegram Mini App</title>
-    <!-- Include Telegram Web App script -->
+    <title>Telegram Mini App - Instagram Login</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body {
@@ -18,36 +17,53 @@
             color: #0088cc;
         }
         .btn {
-            background-color: #0088cc;
+            background-color: #E1306C;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
             margin-top: 20px;
+            font-weight: bold;
         }
         .btn:hover {
-            background-color: #006699;
+            background-color: #C13584;
+        }
+        #user-info {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #2e7d32;
         }
     </style>
 </head>
 <body>
 
     <h1>Welcome to My Mini App</h1>
-    <p>This app runs directly inside Telegram!</p>
+    <p>Connect your account via Instagram below:</p>
     
     <button class="btn" onclick="loginWithInstagram()">Login with Instagram</button>
+    <div id="user-info"></div>
 
     <script>
-        // Initialize Telegram Web App
         let tg = window.Telegram.WebApp;
         tg.expand();
 
         function loginWithInstagram() {
-            alert("Instagram login integration will be triggered here!");
+            const appId = 'YOUR_INSTAGRAM_APP_ID'; 
+            const redirectUri = encodeURIComponent('https://sunny342433.github.io/telegram-mini-app/');
+            const instagramAuthUrl = `https://www.instagram.com/oauth/authorize?enable_fb_login=0&client_id=${appId}&redirect_uri=${redirectUri}&response_type=code&scope=instagram_profile,instagram_business_basic`;
+            window.location.href = instagramAuthUrl;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const authCode = urlParams.get('code');
+
+        if (authCode) {
+            document.getElementById('user-info').innerText = "Successfully logged in with Instagram!";
         }
     </script>
 
 </body>
 </html>
+
