@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Telegram Mini App</title>
+    <!-- Include Telegram Web App script -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #0088cc;
+        }
+        .btn {
+            background-color: #0088cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #006699;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Mini App</h1>
+    <p>This app runs directly inside Telegram!</p>
+    
+    <button class="btn" onclick="loginWithInstagram()">Login with Instagram</button>
+
+    <script>
+        // Initialize Telegram Web App
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+
+        function loginWithInstagram() {
+            alert("Instagram login integration will be triggered here!");
+        }
+    </script>
+
+</body>
+</html>
